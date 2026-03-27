@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIPS - Clínica de Psicologia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        .btn-whatsapp {
+            background-color: #25D366;
+            transition: all 0.3s ease;
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .text-primary { color: #2C7A7B; }
+        .bg-primary { background-color: #2C7A7B; }
+        .bg-primary-light { background-color: #E6FFFA; }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Botão Flutuante -->
+    <a href="https://api.whatsapp.com/send/?phone=5593992006784&text=Olá! Gostaria de agendar uma consulta na CLIPS." target="_blank" class="floating-whatsapp">
+        <i data-lucide="message-circle" style="width: 30px; height: 30px;"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">C</div>
+                <span class="text-2xl font-bold tracking-tight text-primary">CLIPS</span>
+            </div>
+            <a href="https://api.whatsapp.com/send/?phone=5593992006784" class="hidden md:block bg-primary text-white px-6 py-2 rounded-full font-medium">Agendar Consulta</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 bg-primary-light/30">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="inline-block px-4 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-6">Psicologia em Santarém - PA</span>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">Recupere o seu <span class="text-primary">equilíbrio emocional</span> e volte a sorrir.</h1>
+                <p class="text-lg text-slate-600 mb-10">Na CLIPS, oferecemos um espaço seguro e acolhedor para você cuidar da sua saúde mental com profissionais especializados.</p>
+                <a href="https://api.whatsapp.com/send/?phone=5593992006784" class="btn-whatsapp text-white px-10 py-4 rounded-full font-bold flex items-center justify-center gap-2 w-fit">
+                    <i data-lucide="message-circle"></i> Agendar pelo WhatsApp
+                </a>
+            </div>
+            <div data-aos="zoom-in" class="relative">
+                <img src="https://picsum.photos/seed/therapy/800/800" class="rounded-3xl shadow-2xl border-8 border-white" alt="Clínica">
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Você sente que está carregando o mundo nas costas?</h2>
+            <p class="text-lg text-slate-600 mb-12">A ansiedade constante e o estresse podem parecer insuportáveis. Você não precisa passar por isso sozinho.</p>
+            <div class="grid md:grid-cols-2 gap-4 text-left">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                    <i data-lucide="arrow-right" class="text-red-400"></i> <span>Ansiedade que não te deixa descansar</span>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                    <i data-lucide="arrow-right" class="text-red-400"></i> <span>Sobrecarga emocional e esgotamento</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Por que escolher a CLIPS?</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="heart" class="text-primary mb-4" style="width: 40px; height: 40px;"></i>
+                    <h3 class="font-bold text-xl mb-2">Humanizado</h3>
+                    <p class="text-slate-600">Priorizamos a escuta ativa e o vínculo real.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="users" class="text-primary mb-4" style="width: 40px; height: 40px;"></i>
+                    <h3 class="font-bold text-xl mb-2">Especialistas</h3>
+                    <p class="text-slate-600">Psicólogos com expertise em diversas áreas.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="coffee" class="text-primary mb-4" style="width: 40px; height: 40px;"></i>
+                    <h3 class="font-bold text-xl mb-2">Acolhedor</h3>
+                    <p class="text-slate-600">Espaço físico planejado para sua calma.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                    <i data-lucide="sparkles" class="text-primary mb-4" style="width: 40px; height: 40px;"></i>
+                    <h3 class="font-bold text-xl mb-2">Flexível</h3>
+                    <p class="text-slate-600">Atendimento presencial e online.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 text-center bg-teal-50 rounded-[3rem] p-16" data-aos="zoom-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">Dê o primeiro passo para uma vida mais leve hoje.</h2>
+            <a href="https://api.whatsapp.com/send/?phone=5593992006784" class="btn-whatsapp text-white px-12 py-5 rounded-full font-bold text-xl inline-flex items-center gap-3">
+                <i data-lucide="message-circle"></i> Agendar Agora
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-slate-900 text-white text-center">
+        <p>© 2026 CLIPS - Clínica de Psicologia em Santarém - PA</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
