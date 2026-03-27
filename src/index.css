@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #2C7A7B; /* Teal 700 */
+  --color-primary-light: #E6FFFA; /* Teal 50 */
+  --color-accent: #D69E2E; /* Gold/Yellow 600 */
+  --color-soft-bg: #F7FAFC; /* Gray 50 */
+}
+
+@layer base {
+  body {
+    @apply font-sans text-slate-800 bg-white antialiased;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.btn-whatsapp {
+  @apply bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95;
+}
+
+.floating-whatsapp {
+  @apply fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#128C7E] transition-all duration-300 animate-bounce;
+}
+
+@keyframes slow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-slow-bounce {
+  animation: slow-bounce 3s infinite ease-in-out;
+}
