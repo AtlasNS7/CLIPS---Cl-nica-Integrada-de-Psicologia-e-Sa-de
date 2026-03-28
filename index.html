@@ -38,6 +38,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <style>
         :root {
             --primary: #9b67ff;
@@ -99,6 +103,31 @@
             -webkit-backdrop-filter: blur(10px);
         }
 
+        .swiper {
+            width: 100%;
+            height: 100%;
+            border-radius: 3rem;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: white !important;
+            background: rgba(0, 0, 0, 0.3);
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: white !important;
+        }
+
         .card-benefit:hover {
             transform: translateY(-10px);
             transition: all 0.3s ease;
@@ -140,7 +169,7 @@
             </div>
             <div data-aos="zoom-in" class="relative">
                 <div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white">
-                    <img src="https://picsum.photos/seed/therapy-warm/800/800" alt="Terapia CLIPS" class="w-full h-full object-cover">
+                    <img src="https://lh3.googleusercontent.com/d/1-4Ip6RsvUVDqdLcHMYOysuRmpZOm0sJk" alt="Frente da Clínica CLIPS" class="w-full h-full object-cover">
                 </div>
                 <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-2xl max-w-[280px] hidden md:block">
                     <div class="flex items-center gap-3 text-primary mb-3">
@@ -218,8 +247,38 @@
                     </a>
                 </div>
             </div>
-            <div data-aos="fade-left">
-                <img src="https://picsum.photos/seed/clips-clinic/800/600" alt="Clínica" class="rounded-[3rem] shadow-2xl">
+            <div data-aos="fade-left" class="h-[400px] md:h-[500px]">
+                <!-- Swiper Carousel -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/d/19MiRkoCmCP6TJt1hGumwF_sHd41N_QM2" alt="Consultório CLIPS" class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/d/1z7ryjaEg2zQbRlHU0ZJ_IXNlaZ9FWRfo" alt="Salas CLIPS" class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/d/1dFfevNbqNy9VK43gG47YtS2yqRh9x2v4" alt="Ambiente CLIPS" class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/d/1jf9qYiohFXUNzunmFDsP0_O7enqXnzwi" alt="Espaço CLIPS" class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/d/1UJgUyxhGZ1k2Uee2G0mhgZEGBAd8_5F0" alt="Clínica CLIPS" class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/d/1oT0E-sqFeBndWU3gMtV8POefzHs1r0EJ" alt="Atendimento CLIPS" class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://lh3.googleusercontent.com/d/1Y-gFVaM8NgUSBOl3vGYhK2dHuKOdH2Ko" alt="Recepção CLIPS" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -454,6 +513,23 @@
             duration: 1000,
             once: true,
             offset: 100
+        });
+
+        // Inicializar Swiper
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
         });
     </script>
 </body>
