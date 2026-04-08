@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-book Gratuito - CLIPS Clínica de Psicologia</title>
+    <title>O Bullying Reflete Quem Somos - E-book Bullying | CLIPS</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,14 +13,14 @@
                 extend: {
                     colors: {
                         primary: {
-                            DEFAULT: '#9b67ff',
-                            dark: '#7e4de0',
-                            light: '#f3efff',
+                            DEFAULT: '#760056',
+                            dark: '#5a0042',
+                            light: '#fdf2f9',
                         },
                         accent: {
-                            DEFAULT: '#3ab6bc',
-                            dark: '#2e9398',
-                            light: '#e6f7f8',
+                            DEFAULT: '#176aa0',
+                            dark: '#11517a',
+                            light: '#e8f3f9',
                         }
                     }
                 }
@@ -29,7 +29,7 @@
     </script>
     
     <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -40,10 +40,11 @@
 
     <style>
         :root {
-            --primary: #9b67ff;
-            --primary-dark: #7e4de0;
-            --primary-light: #f3efff;
-            --accent: #3ab6bc;
+            --primary: #760056;
+            --primary-dark: #5a0042;
+            --primary-light: #fdf2f9;
+            --accent: #176aa0;
+            --accent-dark: #11517a;
             --whatsapp: #25D366;
         }
         
@@ -55,18 +56,20 @@
         .text-primary { color: var(--primary); }
         .bg-primary { background-color: var(--primary); }
         .bg-primary-light { background-color: var(--primary-light); }
+        .bg-accent { background-color: var(--accent); }
+        .text-accent { color: var(--accent); }
         
-        .btn-whatsapp {
-            background-color: var(--whatsapp);
+        .btn-cta {
+            background-color: var(--accent);
             color: white;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(58, 182, 188, 0.3);
         }
         
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
+        .btn-cta:hover {
+            background-color: var(--accent-dark);
             transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 20px 25px -5px rgba(58, 182, 188, 0.4);
         }
 
         /* Branded Title Styles */
@@ -110,131 +113,762 @@
             }
         }
 
-        .ebook-shadow {
-            filter: drop-shadow(20px 20px 40px rgba(0,0,0,0.2));
+        .ebook-mockup {
+            filter: drop-shadow(30px 30px 60px rgba(0,0,0,0.2));
+            transition: transform 0.5s ease;
+        }
+        
+        .ebook-mockup:hover {
+            transform: rotate(-2deg) scale(1.02);
+        }
+
+        .check-item i {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        /* Floating Mobile Button */
+        .mobile-cta-fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-cta-fixed {
+                display: block;
+            }
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            font-weight: 600;
+            text-align: left;
+            transition: color 0.3s;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #64748b;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
     </style>
 </head>
-<body class="antialiased text-slate-800 bg-slate-50">
+<body class="antialiased text-slate-800 bg-white">
 
-    <!-- Simple Header -->
-    <header class="py-6 px-4">
+    <!-- Header -->
+    <header class="py-6 px-4 absolute top-0 left-0 w-full z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="bg-white p-2 rounded-xl shadow-sm">
+            <a href="index.html" class="bg-white p-2 rounded-xl shadow-sm hover:scale-105 transition-transform">
                 <img src="https://lh3.googleusercontent.com/d/1IWW_UTtyhqLFqFXjnrtgqGwlU2Am5KKz" alt="CLIPS Logo" class="h-8 w-auto" referrerPolicy="no-referrer">
             </a>
-            <a href="index.html" class="text-sm font-bold text-primary hover:underline flex items-center gap-2">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar ao site
-            </a>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-sm font-bold text-primary hover:text-accent transition-colors flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar ao site
+                </a>
+                <span class="hidden md:block text-sm font-medium text-slate-500">E-book Bullying</span>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="py-12 md:py-20 px-4">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <!-- 1. HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden bg-gradient-to-br from-primary-light via-white to-accent-light/30">
+        <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+            <i data-lucide="brain" class="absolute top-20 right-10 w-64 h-64 text-primary"></i>
+            <i data-lucide="heart" class="absolute bottom-20 left-10 w-48 h-48 text-accent"></i>
+        </div>
+        
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
             <div data-aos="fade-right">
-                <span class="inline-block px-4 py-1.5 bg-primary-light text-primary rounded-full text-xs font-bold mb-6 uppercase tracking-wider">Conteúdo Gratuito</span>
+                <span class="inline-block px-4 py-1.5 bg-primary text-white rounded-full text-xs font-bold mb-8 uppercase tracking-widest">Lançamento Exclusivo</span>
                 
                 <div class="branded-title-container mb-8">
                     <div class="branded-box branded-box-teal">
-                        <h1 class="text-3xl md:text-5xl lg:text-6xl uppercase tracking-tighter">Guia Prático de</h1>
+                        <h1 class="text-3xl md:text-5xl lg:text-6xl uppercase tracking-tighter">O Bullying</h1>
                     </div>
                     <div class="branded-box branded-box-purple">
-                        <h1 class="text-2xl md:text-4xl lg:text-5xl uppercase tracking-tighter">Saúde Mental</h1>
+                        <h1 class="text-2xl md:text-4xl lg:text-5xl uppercase tracking-tighter">Reflete Quem Somos</h1>
                     </div>
                 </div>
 
-                <p class="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
-                    Descubra estratégias valiosas para lidar com a ansiedade, melhorar seu sono e cultivar o equilíbrio emocional no dia a dia. Um material exclusivo preparado pela nossa equipe de especialistas.
+                <h2 class="text-xl md:text-2xl font-semibold text-slate-700 mb-6 leading-tight">
+                    Um guia psicológico, educativo e prático para prevenção e enfrentamento do bullying em contextos escolares e clínicos.
+                </h2>
+                
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed max-w-xl">
+                    Mais do que teoria, este material é uma ferramenta prática para transformar a forma como escolas e profissionais lidam com o bullying.
                 </p>
 
-                <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
-                    <h3 class="text-xl font-bold mb-6 text-slate-900">Receba agora no seu WhatsApp:</h3>
-                    <form action="#" class="space-y-4">
-                        <input type="text" placeholder="Seu nome" class="w-full px-6 py-4 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-primary outline-none">
-                        <a href="https://api.whatsapp.com/send?phone=559392006784&text=Ol%C3%A1!%20Quero%20receber%20o%20E-book%20gratuito%20da%20CLIPS." target="_blank" rel="noopener noreferrer" class="w-full btn-whatsapp py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3">
-                            <i data-lucide="download"></i> Baixar E-book Grátis
-                        </a>
-                    </form>
-                    <p class="text-xs text-slate-400 mt-4 text-center">Prometemos não enviar spam. Seu contato está seguro.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#oferta" class="btn-cta px-10 py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3">
+                        Quero acessar agora <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
             </div>
 
             <div class="flex justify-center lg:justify-end" data-aos="zoom-in">
-                <div class="relative max-w-[400px]">
-                    <!-- Placeholder for Ebook Cover -->
-                    <div class="bg-gradient-to-br from-primary to-accent w-full aspect-[3/4] rounded-r-3xl rounded-l-lg ebook-shadow flex flex-col items-center justify-center p-12 text-white text-center relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-full h-full opacity-10">
-                            <i data-lucide="brain" class="w-64 h-64 -ml-20 -mt-20"></i>
-                        </div>
-                        <img src="https://lh3.googleusercontent.com/d/1IWW_UTtyhqLFqFXjnrtgqGwlU2Am5KKz" alt="CLIPS Logo" class="h-12 w-auto mb-8 brightness-0 invert" referrerPolicy="no-referrer">
-                        <h2 class="text-3xl font-black uppercase mb-4">Equilíbrio & Bem-estar</h2>
-                        <div class="h-1 w-20 bg-white mb-6"></div>
-                        <p class="text-lg font-medium opacity-90">Estratégias práticas para uma vida mais leve.</p>
-                        <div class="mt-auto text-sm font-bold tracking-widest uppercase">E-book Gratuito</div>
+                <div class="relative group">
+                    <!-- Mockup based on the provided image -->
+                    <div class="bg-white p-4 rounded-2xl shadow-2xl ebook-mockup">
+                        <img src="capa-livro.png" alt="Capa do E-book O Bullying Reflete Quem Somos" class="rounded-xl w-full max-w-[400px] h-auto">
                     </div>
-                    <!-- Badge -->
-                    <div class="absolute -top-6 -right-6 bg-yellow-400 text-slate-900 w-24 h-24 rounded-full flex items-center justify-center font-black text-center text-sm rotate-12 shadow-xl border-4 border-white">
-                        100%<br>GRÁTIS
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-10 -right-10 bg-yellow-400 text-slate-900 w-28 h-28 rounded-full flex items-center justify-center font-black text-center text-sm rotate-12 shadow-2xl border-4 border-white z-20">
+                        E-BOOK +<br>MATERIAL<br>PRÁTICO
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What's Inside -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
+    <!-- 2. PROBLEMA SECTION -->
+    <section class="py-20 bg-white px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="branded-title-container mb-6 items-center">
+                    <div class="branded-box branded-box-teal !transform !rotate-1">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">O bullying não</h2>
+                    </div>
+                    <div class="branded-box branded-box-purple mt-[-0.5rem]">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">é só uma fase</h2>
+                    </div>
+                </div>
+                <p class="text-xl text-slate-600">O bullying deixa marcas profundas que podem acompanhar uma pessoa por anos:</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="fade-up">
+                    <i data-lucide="alert-circle" class="text-red-500 mt-1"></i>
+                    <span class="text-lg font-medium text-slate-700">Baixa autoestima</span>
+                </div>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="alert-circle" class="text-red-500 mt-1"></i>
+                    <span class="text-lg font-medium text-slate-700">Ansiedade e insegurança</span>
+                </div>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="alert-circle" class="text-red-500 mt-1"></i>
+                    <span class="text-lg font-medium text-slate-700">Dificuldade em se relacionar</span>
+                </div>
+                <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="alert-circle" class="text-red-500 mt-1"></i>
+                    <span class="text-lg font-medium text-slate-700">Impactos na vida adulta</span>
+                </div>
+            </div>
+
+            <div class="bg-red-50 p-8 rounded-3xl border-2 border-dashed border-red-200 text-center" data-aos="zoom-in">
+                <p class="text-2xl font-bold text-red-600 uppercase tracking-tight">
+                    Ignorar o bullying é permitir que essas marcas continuem.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SOLUÇÃO SECTION -->
+    <section class="py-24 bg-primary text-white px-4 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full opacity-10">
+            <i data-lucide="sparkles" class="absolute top-10 right-10 w-32 h-32"></i>
+            <i data-lucide="shield-check" class="absolute bottom-10 left-10 w-32 h-32"></i>
+        </div>
+        
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div data-aos="fade-right">
+                <div class="branded-title-container mb-8">
+                    <div class="branded-box !bg-white !text-accent !transform !rotate-1">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Uma abordagem que</h2>
+                    </div>
+                    <div class="branded-box !bg-accent !text-white mt-[-0.5rem]">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">vai além do óbvio</h2>
+                    </div>
+                </div>
+                
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    O Projeto Reflexo propõe uma visão mais profunda: <strong>O bullying é um reflexo de emoções, inseguranças e relações mal resolvidas.</strong>
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg font-medium">Desenvolver empatia</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg font-medium">Trabalhar a autoimagem</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg font-medium">Criar ambientes mais saudáveis</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg font-medium">Intervir de forma consciente e eficaz</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white/10 backdrop-blur-md p-10 rounded-[3rem] border border-white/20" data-aos="fade-left">
+                <h3 class="text-2xl font-bold mb-6">Ideal para:</h3>
+                <ul class="space-y-6">
+                    <li class="flex gap-4">
+                        <i data-lucide="school" class="text-accent w-8 h-8"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Escolas e Professores</h4>
+                            <p class="text-white/70">Ferramentas para sala de aula e gestão escolar.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <i data-lucide="user-cog" class="text-accent w-8 h-8"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Psicólogos e Terapeutas</h4>
+                            <p class="text-white/70">Material de apoio para prática clínica infantil e juvenil.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <i data-lucide="users" class="text-accent w-8 h-8"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Profissionais da Saúde</h4>
+                            <p class="text-white/70">Compreensão integral dos impactos emocionais.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. O QUE VOCÊ VAI RECEBER -->
+    <section class="py-24 bg-slate-50 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <div class="branded-title-container mb-6 items-center">
                     <div class="branded-box branded-box-teal">
                         <h2 class="text-xl md:text-3xl font-bold uppercase">O que você vai</h2>
                     </div>
                     <div class="branded-box branded-box-purple mt-[-0.5rem]">
-                        <h2 class="text-xl md:text-3xl font-bold uppercase">encontrar no guia?</h2>
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">encontrar no material</h2>
                     </div>
                 </div>
+                <p class="text-lg text-slate-600">Conteúdo completo e pronto para aplicação imediata.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100" data-aos="fade-up">
-                    <div class="w-12 h-12 bg-accent text-white rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="check-circle"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-accent-light text-accent rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="book-open"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Controle da Ansiedade</h3>
-                    <p class="text-slate-600">Exercícios práticos de respiração e mindfulness para momentos de crise.</p>
+                    <h3 class="text-xl font-bold mb-4">Teoria Completa</h3>
+                    <p class="text-slate-600">Explicação detalhada sobre o que é bullying e seus diferentes tipos (físico, verbal, virtual, etc).</p>
                 </div>
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="moon"></i>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-primary-light text-primary rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="clipboard-check"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Higiene do Sono</h3>
-                    <p class="text-slate-600">Dicas essenciais para melhorar a qualidade do seu descanso e ter mais energia.</p>
+                    <h3 class="text-xl font-bold mb-4">Checklist Emocional</h3>
+                    <p class="text-slate-600">Ferramenta para identificar sinais de alerta e impactos na autoestima dos envolvidos.</p>
                 </div>
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-accent text-white rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="heart"></i>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-accent-light text-accent rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="users-2"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Autoestima</h3>
-                    <p class="text-slate-600">Como cultivar uma relação mais gentil e positiva com você mesmo.</p>
+                    <h3 class="text-xl font-bold mb-4">Dinâmicas Práticas</h3>
+                    <p class="text-slate-600">Atividades interativas prontas para aplicar com alunos e grupos, gerando conexão real.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-primary-light text-primary rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Estratégias de Intervenção</h3>
+                    <p class="text-slate-600">Passo a passo para escolas e profissionais agirem de forma eficaz e humanizada.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-accent-light text-accent rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="smile"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Foco em Autoestima</h3>
+                    <p class="text-slate-600">Material focado na reconstrução da autoimagem e fortalecimento emocional.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-primary-light text-primary rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Aplicação Imediata</h3>
+                    <p class="text-slate-600">Todo o conteúdo foi desenhado para que você possa começar a usar hoje mesmo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-slate-100 text-center px-4">
-        <div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
-            <a href="index.html" class="inline-flex items-center gap-2 px-6 py-2 border-2 border-slate-200 rounded-full text-slate-500 font-bold hover:bg-slate-50 transition-all text-sm">
-                <i data-lucide="home" class="w-4 h-4"></i> Voltar ao Início
+    <!-- 4.1 POR DENTRO DO MATERIAL -->
+    <section class="py-24 bg-white px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="branded-title-container mb-6 items-center">
+                    <div class="branded-box branded-box-teal">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Veja por dentro</h2>
+                    </div>
+                    <div class="branded-box branded-box-purple mt-[-0.5rem]">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">do material</h2>
+                    </div>
+                </div>
+                <p class="text-lg text-slate-600">Antes de comprar, veja alguns exemplos do que você vai receber.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group" data-aos="zoom-in">
+                    <div class="bg-slate-100 rounded-3xl overflow-hidden shadow-lg mb-6 transition-transform group-hover:scale-[1.02]">
+                        <img src="https://picsum.photos/seed/page1/600/800" alt="Página do Ebook" class="w-full h-auto">
+                    </div>
+                    <h4 class="text-lg font-bold text-center">Atividades Práticas</h4>
+                </div>
+                <div class="group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="bg-slate-100 rounded-3xl overflow-hidden shadow-lg mb-6 transition-transform group-hover:scale-[1.02]">
+                        <img src="https://picsum.photos/seed/page2/600/800" alt="Página do Ebook" class="w-full h-auto">
+                    </div>
+                    <h4 class="text-lg font-bold text-center">Dinâmicas Interativas</h4>
+                </div>
+                <div class="group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="bg-slate-100 rounded-3xl overflow-hidden shadow-lg mb-6 transition-transform group-hover:scale-[1.02]">
+                        <img src="https://picsum.photos/seed/page3/600/800" alt="Página do Ebook" class="w-full h-auto">
+                    </div>
+                    <h4 class="text-lg font-bold text-center">Conteúdo Visual Organizado</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DIFERENCIAL SECTION -->
+    <section class="py-24 bg-white px-4">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2" data-aos="fade-right">
+                <div class="branded-title-container mb-8">
+                    <div class="branded-box branded-box-purple !transform !rotate-1">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Não é só um ebook.</h2>
+                    </div>
+                    <div class="branded-box branded-box-teal mt-[-0.5rem] !ml-0 md:!ml-8">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">É transformação.</h2>
+                    </div>
+                </div>
+                
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4 check-item">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        <span class="text-lg text-slate-700">Baseado em <strong>prática clínica e educacional</strong> real.</span>
+                    </li>
+                    <li class="flex items-start gap-4 check-item">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        <span class="text-lg text-slate-700">Linguagem <strong>acessível e profissional</strong> ao mesmo tempo.</span>
+                    </li>
+                    <li class="flex items-start gap-4 check-item">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        <span class="text-lg text-slate-700"><strong>Atividades prontas</strong> para uso em diversos contextos.</span>
+                    </li>
+                    <li class="flex items-start gap-4 check-item">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        <span class="text-lg text-slate-700">Foco genuíno em <strong>empatia e consciência emocional</strong>.</span>
+                    </li>
+                    <li class="flex items-start gap-4 check-item">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        <span class="text-lg text-slate-700">Versatilidade: aplique em <strong>escolas ou atendimentos</strong>.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="lg:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-left">
+                <div class="space-y-4">
+                    <div class="bg-accent-light p-8 rounded-[2rem] text-center">
+                        <div class="text-4xl font-black text-accent mb-2">100%</div>
+                        <div class="text-sm font-bold uppercase text-accent-dark">Prático</div>
+                    </div>
+                    <div class="bg-primary-light p-8 rounded-[2rem] text-center">
+                        <i data-lucide="users" class="w-10 h-10 text-primary mx-auto mb-2"></i>
+                        <div class="text-sm font-bold uppercase text-primary-dark">Escolas & Clínicas</div>
+                    </div>
+                </div>
+                <div class="space-y-4 mt-8">
+                    <div class="bg-primary-light p-8 rounded-[2rem] text-center">
+                        <i data-lucide="brain" class="w-10 h-10 text-primary mx-auto mb-2"></i>
+                        <div class="text-sm font-bold uppercase text-primary-dark">Psicologia Aplicada</div>
+                    </div>
+                    <div class="bg-accent-light p-8 rounded-[2rem] text-center">
+                        <i data-lucide="file-text" class="w-10 h-10 text-accent mx-auto mb-2"></i>
+                        <div class="text-sm font-bold uppercase text-accent-dark">Material Digital</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. COMO FUNCIONA -->
+    <section class="py-24 bg-slate-900 text-white px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <div class="branded-title-container mb-6 items-center">
+                    <div class="branded-box !bg-white !text-primary">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Como aplicar</h2>
+                    </div>
+                    <div class="branded-box !bg-primary !text-white mt-[-0.5rem]">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">na prática</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <!-- Line Connector (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0"></div>
+                
+                <div class="relative z-10 text-center" data-aos="fade-up">
+                    <div class="w-20 h-20 bg-accent text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-8 shadow-xl">1</div>
+                    <h3 class="text-xl font-bold mb-4">Apresente</h3>
+                    <p class="text-white/60">Introduza o tema do bullying de forma acolhedora.</p>
+                </div>
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-8 shadow-xl">2</div>
+                    <h3 class="text-xl font-bold mb-4">Utilize</h3>
+                    <p class="text-white/60">Aplique as dinâmicas e atividades sugeridas.</p>
+                </div>
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-accent text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-8 shadow-xl">3</div>
+                    <h3 class="text-xl font-bold mb-4">Promova</h3>
+                    <p class="text-white/60">Crie rodas de conversa e escuta ativa.</p>
+                </div>
+                <div class="relative z-10 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-8 shadow-xl">4</div>
+                    <h3 class="text-xl font-bold mb-4">Transforme</h3>
+                    <p class="text-white/60">Gere reflexão e mude a cultura do ambiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROVA SOCIAL -->
+    <section class="py-24 bg-white px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="branded-title-container mb-6 items-center">
+                    <div class="branded-box branded-box-teal">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Quem já aplicou</h2>
+                    </div>
+                    <div class="branded-box branded-box-purple mt-[-0.5rem]">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">recomenda</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-50 p-10 rounded-[3rem] relative" data-aos="fade-right">
+                    <i data-lucide="quote" class="absolute top-8 right-10 w-12 h-12 text-accent/20"></i>
+                    <p class="text-xl italic text-slate-700 mb-8 leading-relaxed">
+                        "Nunca imaginei que falar sobre bullying fosse me fazer sentir tão leve. As atividades me ajudaram a entender o que eu estava sentindo."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">E</div>
+                        <div>
+                            <div class="font-bold text-slate-900">Estudante</div>
+                            <div class="text-sm text-slate-500">16 anos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-10 rounded-[3rem] relative" data-aos="fade-left">
+                    <i data-lucide="quote" class="absolute top-8 right-10 w-12 h-12 text-primary/20"></i>
+                    <p class="text-xl italic text-slate-700 mb-8 leading-relaxed">
+                        "A dinâmica fez os alunos se abrirem como nenhuma palestra conseguiu. O material é muito bem estruturado e fácil de aplicar em sala."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">P</div>
+                        <div>
+                            <div class="font-bold text-slate-900">Professora</div>
+                            <div class="text-sm text-slate-500">Ensino Médio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. OFERTA SECTION -->
+    <section id="oferta" class="py-24 bg-primary-light px-4 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-primary/10" data-aos="zoom-in">
+            <div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center bg-slate-50">
+                <div class="branded-title-container mb-8">
+                    <div class="branded-box branded-box-teal">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Garanta seu</h2>
+                    </div>
+                    <div class="branded-box branded-box-purple mt-[-0.5rem]">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">acesso agora</h2>
+                    </div>
+                </div>
+                <p class="text-lg text-slate-600 mb-8">
+                    Tenha acesso ao material completo e comece a aplicar imediatamente em sua escola ou clínica.
+                </p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-3 text-slate-700 font-medium">
+                        <i data-lucide="check-circle" class="text-accent w-5 h-5"></i> E-book Completo
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-700 font-medium">
+                        <i data-lucide="check-circle" class="text-accent w-5 h-5"></i> Dinâmicas em PDF
+                    </div>
+                    <div class="flex items-center gap-3 text-slate-700 font-medium">
+                        <i data-lucide="check-circle" class="text-accent w-5 h-5"></i> Checklist Emocional
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 p-10 md:p-16 flex flex-col items-center justify-center text-center relative">
+                <div class="absolute top-0 right-0 p-6">
+                    <div class="bg-accent text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest animate-pulse">Oferta Limitada</div>
+                </div>
+                
+                <div class="text-slate-400 line-through text-xl mb-2">De R$ 49,90</div>
+                <div class="text-5xl md:text-7xl font-black text-primary mb-6">R$ 39,92</div>
+                
+                <div class="bg-accent/10 border-2 border-dashed border-accent p-4 rounded-2xl mb-8 w-full">
+                    <p class="text-accent-dark font-bold text-sm uppercase mb-1">Cupom de Desconto</p>
+                    <div class="text-2xl font-black text-accent tracking-widest">REFLEXO</div>
+                    <p class="text-accent-dark text-xs mt-1">Ganhe 20% de desconto agora</p>
+                </div>
+
+                <a href="https://api.whatsapp.com/send?phone=559392006784&text=Ol%C3%A1!%20Quero%20comprar%20o%20material%20'O%20Bullying%20Reflete%20Quem%20Somos'%20com%20o%20cupom%20REFLEXO." target="_blank" rel="noopener noreferrer" class="w-full btn-cta py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3">
+                    Comprar agora <i data-lucide="shopping-cart"></i>
+                </a>
+
+                <div class="mt-6 space-y-2 text-left w-full max-w-xs mx-auto">
+                    <div class="flex items-center gap-2 text-sm text-slate-600 font-medium">
+                        <i data-lucide="check" class="text-green-500 w-4 h-4"></i> Acesso imediato
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-slate-600 font-medium">
+                        <i data-lucide="check" class="text-green-500 w-4 h-4"></i> Aplicação prática
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-slate-600 font-medium">
+                        <i data-lucide="check" class="text-green-500 w-4 h-4"></i> Conteúdo completo
+                    </div>
+                </div>
+
+                <p class="mt-8 text-slate-500 text-sm italic">
+                    "Você não está comprando apenas um e-book. Está adquirindo uma ferramenta de transformação."
+                </p>
+                
+                <!-- Trust Badges -->
+                <div class="mt-10 grid grid-cols-2 gap-4 w-full">
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="lock" class="text-slate-400 w-5 h-5"></i>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-slate-400">Compra 100% segura</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="zap" class="text-slate-400 w-5 h-5"></i>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-slate-400">Acesso imediato</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="shield-check" class="text-slate-400 w-5 h-5"></i>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-slate-400">Material validado</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="monitor" class="text-slate-400 w-5 h-5"></i>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-slate-400">Acesso digital</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 9. URGÊNCIA -->
+        <div class="text-center mt-12" data-aos="fade-up">
+            <p class="text-primary font-bold flex items-center justify-center gap-2">
+                <i data-lucide="clock" class="w-5 h-5"></i> Essa condição especial pode sair do ar a qualquer momento.
+            </p>
+        </div>
+    </section>
+
+    <!-- 9.5 FAQ SECTION -->
+    <section class="py-24 bg-slate-50 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="branded-title-container mb-6 items-center">
+                    <div class="branded-box branded-box-teal">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Dúvidas</h2>
+                    </div>
+                    <div class="branded-box branded-box-purple mt-[-0.5rem]">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">frequentes</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-2" data-aos="fade-up">
+                <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Como recebo o material?</span>
+                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Você recebe acesso imediato após a compra, com link para download do e-book.
+                    </div>
+                </div>
+                <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Posso imprimir?</span>
+                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Sim. O material é totalmente formatado para impressão (A4).
+                    </div>
+                </div>
+                <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Esse material é só para psicólogos?</span>
+                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Não. Ele pode ser utilizado por professores, escolas, pais e profissionais da saúde.
+                    </div>
+                </div>
+                <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Em quanto tempo posso aplicar?</span>
+                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Imediatamente. O conteúdo já é estruturado com atividades prontas.
+                    </div>
+                </div>
+                <div class="faq-item bg-white px-6 rounded-2xl border border-slate-100">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>O acesso é vitalício?</span>
+                        <i data-lucide="chevron-down" class="faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Sim, você poderá acessar o material sempre que quiser.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SOBRE A CLÍNICA -->
+    <section class="py-24 bg-white px-4">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/3" data-aos="fade-right">
+                <div class="bg-primary-light p-4 rounded-[2rem] shadow-xl">
+                    <img src="https://picsum.photos/seed/clips-team/600/600" alt="Equipe CLIPS" class="rounded-[1.5rem] w-full h-auto object-cover">
+                </div>
+            </div>
+            <div class="md:w-2/3" data-aos="fade-left">
+                <div class="branded-title-container mb-6">
+                    <div class="branded-box branded-box-teal">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">Sobre a</h2>
+                    </div>
+                    <div class="branded-box branded-box-purple mt-[-0.5rem] !ml-0 md:!ml-12">
+                        <h2 class="text-xl md:text-3xl font-bold uppercase">CLIPS</h2>
+                    </div>
+                </div>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    A <strong>CLIPS</strong> é uma clínica especializada em saúde mental, com atuação prática em contextos clínicos e educacionais, desenvolvendo projetos que geram impacto real na vida de crianças e adolescentes. O Projeto Reflexo é uma iniciativa nossa para levar consciência e ferramentas reais para o enfrentamento do bullying.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. SEÇÃO FINAL (CTA) -->
+    <section class="py-24 bg-slate-900 text-white px-4 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="max-w-3xl mx-auto relative z-10" data-aos="zoom-in">
+            <h2 class="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter">Comece a transformação hoje</h2>
+            <p class="text-xl text-white/70 mb-12 leading-relaxed">
+                O bullying não precisa continuar sendo um problema ignorado. Você tem em mãos a ferramenta para mudar essa realidade.
+            </p>
+            <a href="#oferta" class="inline-flex bg-accent text-white px-12 py-6 rounded-2xl font-bold text-xl hover:bg-accent-dark transition-all shadow-2xl shadow-accent/20">
+                Quero meu acesso agora
             </a>
-            <p class="text-slate-400 text-sm">© 2026 CLIPS - Clínica de Psicologia. Todos os direitos reservados.</p>
+        </div>
+    </section>
+
+    <!-- 12. RODAPÉ -->
+    <footer class="py-12 bg-white border-t border-slate-100 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <img src="https://lh3.googleusercontent.com/d/1IWW_UTtyhqLFqFXjnrtgqGwlU2Am5KKz" alt="CLIPS Logo" class="h-8 w-auto grayscale opacity-50" referrerPolicy="no-referrer">
+            
+            <div class="flex flex-col items-center gap-6">
+                <div class="flex flex-col md:flex-row items-center gap-8 text-slate-500 font-medium">
+                    <a href="tel:559392006784" class="flex items-center gap-2 hover:text-primary transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5"></i> (93) 9200-6784
+                    </a>
+                    <a href="https://instagram.com/clips.psi" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5"></i> @clips.psi
+                    </a>
+                </div>
+                <a href="index.html" class="inline-flex items-center gap-2 px-6 py-2 border-2 border-slate-200 rounded-full text-slate-500 font-bold hover:bg-slate-50 transition-all text-sm">
+                    <i data-lucide="home" class="w-4 h-4"></i> Voltar ao Início
+                </a>
+            </div>
+            
+            <p class="text-slate-400 text-sm">© 2026 E-book Bullying - CLIPS. Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <!-- Floating Mobile CTA -->
+    <div class="mobile-cta-fixed">
+        <a href="#oferta" class="w-full bg-accent text-white py-4 rounded-xl font-bold text-center block shadow-lg">
+            Comprar agora
+        </a>
+    </div>
+
     <script>
+        // Inicializar ícones Lucide
         lucide.createIcons();
-        AOS.init({ duration: 1000, once: true });
+        
+        // Inicializar Animações AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>

@@ -8,6 +8,15 @@ export default defineConfig(({mode}) => {
   return {
     plugins: [react(), tailwindcss()],
     base: './',
+    build: {
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          ebook: path.resolve(__dirname, 'ebook.html'),
+          clips: path.resolve(__dirname, 'clips-psicologia.html'),
+        },
+      },
+    },
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
